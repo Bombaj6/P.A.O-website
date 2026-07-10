@@ -1915,3 +1915,25 @@ body.dark-mode .p-tag {
     }
 }
 
+/* Junior Counsel Section Spacing */
+.team-subheader {
+    text-align: center;
+    margin: 100px 0 50px 0;
+}
+
+.team-subheader h2 {
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+}
+
+.team-subheader p {
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.junior-grid {
+    margin-bottom: 100px;
+}
+
+
