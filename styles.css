@@ -1937,3 +1937,272 @@ body.dark-mode .p-tag {
 }
 
 
+/* ============================================
+   COOKIE CONSENT BANNER
+   ============================================ */
+
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10000;
+    background-color: var(--bg-card);
+    border-top: 1px solid var(--border-color);
+    box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.15);
+    padding: 24px 0;
+    transform: translateY(100%);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), background-color var(--transition-smooth);
+}
+
+.cookie-banner.visible {
+    transform: translateY(0);
+}
+
+.cookie-banner-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.cookie-text {
+    flex: 1;
+}
+
+.cookie-text h4 {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    margin-bottom: 6px;
+    color: var(--text-primary);
+}
+
+.cookie-text p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.cookie-text a {
+    color: var(--accent-gold);
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.cookie-actions {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.cookie-btn {
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.cookie-btn-accept {
+    background-color: var(--accent-gold);
+    color: #fff;
+}
+
+.cookie-btn-accept:hover {
+    background-color: #c9a030;
+    transform: translateY(-1px);
+}
+
+.cookie-btn-essential {
+    background-color: var(--primary-blue);
+    color: #fff;
+}
+
+.cookie-btn-essential:hover {
+    background-color: #163250;
+    transform: translateY(-1px);
+}
+
+.cookie-btn-decline {
+    background-color: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.cookie-btn-decline:hover {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+    .cookie-banner-inner {
+        flex-direction: column;
+        text-align: center;
+        padding: 0 20px;
+    }
+
+    .cookie-actions {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .cookie-btn {
+        width: 100%;
+        padding: 12px;
+    }
+}
+
+
+/* ============================================
+   PRIVACY POLICY PAGE
+   ============================================ */
+
+.privacy-content {
+    padding: 80px 0 100px 0;
+}
+
+.policy-document {
+    max-width: 820px;
+    margin: 0 auto;
+}
+
+.policy-updated {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 50px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.policy-section {
+    margin-bottom: 45px;
+}
+
+.policy-section h2 {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    color: var(--text-primary);
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent-gold);
+    display: inline-block;
+}
+
+.policy-section h3 {
+    font-size: 1.15rem;
+    color: var(--text-primary);
+    margin: 24px 0 12px 0;
+    font-weight: 600;
+}
+
+.policy-section p {
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--text-secondary);
+    margin-bottom: 14px;
+}
+
+.policy-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 14px 0 20px 0;
+}
+
+.policy-section ul li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+.policy-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent-gold);
+    font-weight: 700;
+}
+
+.policy-section a {
+    color: var(--accent-gold);
+    text-decoration: underline;
+}
+
+.policy-section a:hover {
+    color: var(--primary-blue);
+}
+
+/* Cookie Table */
+.cookie-table-wrapper {
+    overflow-x: auto;
+    margin: 20px 0 24px 0;
+}
+
+.cookie-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.cookie-table th,
+.cookie-table td {
+    padding: 14px 18px;
+    text-align: left;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+}
+
+.cookie-table thead th {
+    background-color: var(--primary-blue);
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+body.dark-mode .cookie-table thead th {
+    background-color: rgba(212, 175, 55, 0.15);
+    color: var(--accent-gold);
+}
+
+.cookie-table tbody tr {
+    transition: background-color 0.2s;
+}
+
+.cookie-table tbody tr:hover {
+    background-color: var(--bg-secondary);
+}
+
+/* Contact Block in Privacy */
+.policy-contact-block {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--accent-gold);
+    border-radius: var(--border-radius-md);
+    padding: 24px 30px;
+    margin-top: 16px;
+}
+
+.policy-contact-block p {
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+}
+
+.policy-contact-block a {
+    color: var(--accent-gold);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.policy-contact-block a:hover {
+    text-decoration: underline;
+}

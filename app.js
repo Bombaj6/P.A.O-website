@@ -434,3 +434,59 @@ function initContactForm() {
         }, 1800);
     });
 }
+
+
+/* ============================================
+   8. COOKIE CONSENT BANNER
+   ============================================ */
+
+(function initCookieConsent() {
+    const banner = document.getElementById('cookieBanner');
+    const acceptBtn = document.getElementById('cookieAccept');
+    const essentialBtn = document.getElementById('cookieEssential');
+    const declineBtn = document.getElementById('cookieDecline');
+    const footerCookieLink = document.getElementById('footerCookieSettings');
+
+    if (!banner) return;
+
+    // Check if user has already made a choice
+    const consentStatus = localStorage.getItem('pao_cookie_consent');
+
+    if (!consentStatus) {
+        // Show banner after a short delay for smoother UX
+        setTimeout(() => {
+            banner.classList.add('visible');
+        }, 1500);
+    }
+
+    function hideBanner() {
+        banner.classList.remove('visible');
+    }
+
+    function setConsent(level) {
+        localStorage.setItem('pao_cookie_consent', level);
+        localStorage.setItem('pao_cookie_consent_date', new Date().toISOString());
+        hideBanner();
+    }
+
+    if (acceptBtn) {
+        acceptBtn.addEventListener('click', () => setConsent('all'));
+    }
+    if (essentialBtn) {
+        essentialBtn.addEventListener('click', () => setConsent('essential'));
+    }
+    if (declineBtn) {
+        declineBtn.addEventListener('click', () => setConsent('declined'));
+    }
+
+    // Footer "Cookie Settings" link — re-shows the banner
+    if (footerCookieLink) {
+        footerCookieLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            localStorage.removeItem('pao_cookie_consent');
+            localStorage.removeItem('pao_cookie_consent_date');
+            banner.classList.add('visible');
+            banner.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        });
+    }
+})();
